@@ -1,0 +1,186 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <nav
+        class="w-full px-8 py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10"
+    >
+        <a
+            href="/#work"
+            class="text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >← Back to Home</a
+        >
+        <h1
+            class="text-sm font-serif-elegant tracking-wide text-slate-900 dark:text-white"
+        >
+            Saurabh Sawant
+        </h1>
+    </nav>
+    <main class="min-h-screen flex flex-col items-center w-full pb-32">
+        <header class="w-full max-w-6xl px-8 pt-24 pb-16">
+        <p
+            class="text-xs tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-4"
+        >
+            Unitree A1 · Oct 2024 - Apr 2025
+        </p>
+        <h1
+            class="text-5xl md:text-7xl font-serif-elegant text-slate-900 dark:text-white leading-tight mb-8"
+        >
+            Multi-Robot Task Planning
+        </h1>
+        <div
+            class="flex flex-wrap gap-4 text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/10 pt-8"
+        >
+            <span>ROS</span><span>•</span><span>Python</span><span>•</span><span
+                >Behavior Trees</span
+            ><span>•</span><span>gRPC</span><span>•</span><span
+                >Cartographer</span
+            >
+        </div>
+    </header>
+
+    <div class="w-full max-w-6xl px-8 mb-16">
+        <img
+            src="/IDOGS_1.png"
+            alt="Project Overview"
+            class="w-full h-auto max-h-[70vh] object-contain rounded-2xl shadow-sm dark:shadow-none opacity-90 bg-slate-100 dark:bg-[#111]"
+        />
+    </div>
+
+    <article
+        class="w-full max-w-6xl px-8 text-slate-900 dark:text-slate-300 font-light leading-relaxed space-y-12 text-lg text-justify mt-8"
+    >
+        <section>
+            <h3
+                class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+            >
+                Overview & Mission Context
+            </h3>
+            <p>
+                This project focuses on automating civil infrastructure
+                inspections using a Multi-Robot System (MRS) to overcome the
+                limitations of single-robot deployments, such as limited battery
+                life, restricted range, and the risk of complete mission
+                failure. The primary objective was to develop a modular and
+                scalable Multi-Robot Task Planning (MRTP) framework using
+                Behavior Trees (BTs) to coordinate multiple quadruped robots
+                ("IDOGs") autonomously in a shared environment.
+            </p>
+        </section>
+
+        <section>
+            <h3
+                class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+            >
+                System Architecture & Methodology
+            </h3>
+            <p class="mb-4">
+                To manage complex and concurrent inspection missions, the system
+                architecture transitioned from traditional Finite State Machines
+                (FSMs), which scale poorly, to a flexible Behavior Tree
+                architecture.
+            </p>
+            <ul
+                class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+            >
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Skill Subtrees:</strong
+                    > Core robot capabilities, including autonomous navigation and
+                    visual inspection, were designed as modular, reusable BT subtrees.
+                </li>
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Task Assignment GUI:</strong
+                    > A custom graphical user interface was developed using PyQt5
+                    to allow operators to easily assign specific tasks to individual
+                    robots dynamically.
+                </li>
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Shared Localization:</strong
+                    > Implemented a centralized communication system using a gRPC
+                    protocol (Cartographer gRPC) to enable real-time localization
+                    and shared mapping across the multi-robot fleet.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3
+                class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+            >
+                ROS Integration & Validation
+            </h3>
+            <p class="mb-4">
+                The software stack heavily utilized ROS and the ros_bt_py
+                library for execution, which was then validated on physical
+                hardware.
+            </p>
+            <ul
+                class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+            >
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Namespace Isolation:</strong
+                    > Achieved scalable and isolated task execution by running independent
+                    BTs within specific ROS namespaces for each robot.
+                </li>
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Programmatic Execution:</strong
+                    > Engineered custom Python functions that utilized ROS services
+                    to programmatically load, add, and execute BT nodes and subtrees
+                    based on instructions from the GUI.
+                </li>
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Real-World Testing:</strong
+                    > Successfully validated the framework using Unitree IDOG quadruped
+                    robots in an indoor office environment, proving the system's ability
+                    to navigate and perform visual inspections, such as detecting
+                    electrical sockets.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3
+                class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+            >
+                Challenges & Implementation
+            </h3>
+            <p class="mb-4">
+                Deploying the multi-robot system on physical hardware revealed
+                several technical hurdles that required targeted engineering
+                solutions.
+            </p>
+            <ul
+                class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+            >
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Network Latency:</strong
+                    > Running multi-robot localization via Cartographer gRPC introduced
+                    latency and timing conflicts, which negatively impacted the effectiveness
+                    of real-time collision avoidance between the robots.
+                </li>
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >State Management Limits:</strong
+                    > Because the ros_bt_py library lacked a native "blackboard" feature
+                    for sharing variables between nodes, we had to engineer a workaround
+                    utilizing the ROS parameter server.
+                </li>
+                <li>
+                    <strong class="font-medium text-slate-900 dark:text-white"
+                        >Topic Collisions:</strong
+                    > Running multiple autonomous agents simultaneously required incredibly
+                    strict namespace management to prevent ROS topic collisions.
+                </li>
+            </ul>
+        </section>
+    </article>
+    </main>
+</Layout>

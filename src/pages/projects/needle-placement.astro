@@ -1,0 +1,173 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <nav
+        class="w-full px-8 py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10"
+    >
+        <a
+            href="/#work"
+            class="text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >← Back to Home</a
+        >
+        <h1
+            class="text-sm font-serif-elegant tracking-wide text-slate-900 dark:text-white"
+        >
+            Saurabh Sawant
+        </h1>
+    </nav>
+    <main class="min-h-screen flex flex-col items-center w-full pb-32">
+        <header class="w-full max-w-6xl px-8 pt-24 pb-16">
+            <p
+                class="text-xs tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-4"
+            >
+                Franka Panda · Apr 2023 - Jul 2023
+            </p>
+            <h1
+                class="text-5xl md:text-7xl font-serif-elegant text-slate-900 dark:text-white leading-tight mb-8"
+            >
+                Image-Guided Robotic Needle Placement
+            </h1>
+            <div
+                class="flex flex-wrap gap-4 text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/10 pt-8"
+            >
+                <span>ROS</span><span>•</span><span>Python</span><span>•</span><span>Kinematics</span><span>•</span><span>Path Planning</span><span>•</span><span>Trajectory Planning</span>
+            </div>
+        </header>
+        <div class="w-full max-w-6xl px-8 mb-16">
+            <div
+                class="w-full aspect-video bg-slate-100 dark:bg-[#111] relative overflow-hidden rounded-2xl shadow-sm dark:shadow-none"
+            >
+                <img
+                    src="/Franka.png"
+                    alt="Franka Emika Panda Robot"
+                    class="w-full h-full object-cover opacity-90"
+                />
+            </div>
+        </div>
+
+        <article
+            class="w-full max-w-6xl px-8 text-slate-900 dark:text-slate-300 font-light leading-relaxed space-y-12 text-lg text-justify mt-8"
+        >
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Overview & Course Context
+                </h3>
+                <p>
+                    Developed as part of the "Robotics and Navigation in
+                    Medicine" course at TUHH (MTEC), this project aimed to
+                    simulate and execute a modern image-guided robotic surgery.
+                    The primary objective was to accurately identify a tumor's
+                    position and autonomously maneuver a 7-axis Franka Emika
+                    robotic arm to perform a minimally invasive needle biopsy.
+                </p>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Project Structure
+                </h3>
+                <p class="mb-4">
+                    The development was split between two specialized sub-teams:
+                    Vision and Robotics. I focused entirely on the Robotics
+                    aspect.
+                </p>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Vision Team:</strong
+                        > Handled depth camera calibration and image processing to
+                        output two critical 3D spatial coordinates: the target tumor
+                        location and the optimal entry point on the patient to minimize
+                        tissue damage.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Robotics Team (My Role):</strong
+                        > Responsible for translating those 3D coordinates into smooth,
+                        safe, and precise physical movements of the robotic manipulator.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Trajectory Planning & Control
+                </h3>
+                <p class="mb-4">
+                    Safe medical robotics requires mathematically continuous and
+                    jerk-free motion. To achieve this, our team implemented the
+                    underlying motion control architecture using ROS and Python.
+                </p>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Trajectory Algorithms:</strong
+                        > We wrote two different trajectory planning algorithms—Quintic Polynomials and LSPB (Linear Segment with Parabolic Blends). We evaluated both approaches and chose the better-performing one to guarantee continuous position, velocity, and acceleration profiles, eliminating abrupt hardware jerks during operation.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Straight-Line Interpolation:</strong
+                        > Engineered custom interpolation algorithms to constrain
+                        the needle's path to a strict straight line from the entry
+                        point to the tumor, which is critical for minimizing surgical
+                        invasiveness.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >ROS Node Integration:</strong
+                        > Encapsulated the planning logic within a dedicated ROS node
+                        to handle the dynamic pose targeting and execution seamlessly.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Challenges & Implementation
+                </h3>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Manual Inverse Kinematics:</strong
+                        > Instead of relying on high-level abstractions like MoveIt,
+                        the inverse kinematics for the 7-axis arm were calculated
+                        and implemented manually. This provided a much deeper understanding
+                        of redundant manipulator motion and singularity avoidance.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Sim-to-Real Gap:</strong
+                        > Bridging the gap between RViz simulations and the physical
+                        Franka robot required rigorous debugging. Motions that appeared
+                        flawless in simulation occasionally triggered safety limits
+                        on the real hardware, demanding iterative refinements to the
+                        trajectory parameters.
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+</Layout>

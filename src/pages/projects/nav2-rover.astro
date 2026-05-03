@@ -1,0 +1,202 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <nav
+        class="w-full px-8 py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10"
+    >
+        <a
+            href="/#work"
+            class="text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >← Back to Home</a
+        >
+        <h1
+            class="text-sm font-serif-elegant tracking-wide text-slate-900 dark:text-white"
+        >
+            Saurabh Sawant
+        </h1>
+    </nav>
+
+    <main class="min-h-screen flex flex-col items-center w-full pb-32">
+        <header class="w-full max-w-6xl px-8 pt-24 pb-16">
+            <p
+                class="text-xs tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-4"
+            >
+                Master Thesis · Feb 2026 - Aug 2026
+            </p>
+            <h1
+                class="text-5xl md:text-7xl font-serif-elegant text-slate-900 dark:text-white leading-tight mb-8"
+            >
+                Articulated Motion Planning for Dual-Body Non-Holonomic Mobile
+                Robots
+            </h1>
+
+            <div
+                class="flex flex-wrap gap-4 text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/10 pt-8"
+            >
+                <span>ROS 2</span><span>•</span><span>Nav2</span><span>•</span
+                ><span>C++</span><span>•</span><span>Graph SLAM</span><span
+                    >•</span
+                ><span>Kinematics</span>
+            </div>
+        </header>
+
+        <div class="w-full max-w-6xl px-8 mb-16 flex justify-center">
+            <img
+                src="/Janus_1.png"
+                alt="Project Overview"
+                class="w-full h-auto max-h-[70vh] object-contain rounded-2xl shadow-sm dark:shadow-none opacity-90 bg-slate-100 dark:bg-[#111]"
+            />
+        </div>
+
+        <article
+            class="w-full max-w-6xl px-8 text-slate-900 dark:text-slate-300 font-light leading-relaxed space-y-12 text-lg text-justify mt-8"
+        >
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Literature Review & Requirements
+                </h3>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Research & Modeling:</strong
+                        > Conducting a comprehensive narrative literature review on
+                        motion planning, kinematic modeling, and control approaches
+                        for articulated and non-holonomic mobile robots.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Dual-Body Focus:</strong
+                        > Focusing specifically on dual-body platforms formed by two
+                        differential-drive units and investigating established techniques
+                        such as lattice-based planning, Hybrid-A*, and articulated-kinematic
+                        modeling.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >System Criteria:</strong
+                        > Defining comprehensive functional requirements and necessary
+                        criteria for kinematic consistency, articulation-aware trajectory
+                        generation, and collision avoidance based on these findings.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Framework Adaptation & MRG-SLAM Integration
+                </h3>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Nav2 Architecture:</strong
+                        > Adapting an existing ROS 2-based navigation framework to
+                        handle the non-holonomic constraints of dual-body systems.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Localization:</strong
+                        > Leveraging an existing multi-robot graph simultaneous localization
+                        and mapping (MRG-SLAM) algorithm to maintain robust mapping.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Hinge-Aware Mechanics:</strong
+                        > Extending specific components to natively support an articulated
+                        motion model, including hinge-aware collision checking and
+                        specialized trajectory planning strategies.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Implementation & Physical Deployment
+                </h3>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >ROS 2 Integration:</strong
+                        > Implementing the adapted framework directly within a ROS
+                        2 environment by actively integrating planning modules and
+                        articulation-state mechanisms into the Navigation2 (Nav2)
+                        stack.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Hardware Deployment:</strong
+                        > Deploying the navigation components onto the physical dual-body
+                        robotic hardware.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Low-Level Communication:</strong
+                        > Adapting robot interfaces, verifying communication with
+                        low-level controllers, and ensuring compatibility with the
+                        onboard MRG-SLAM system to prepare for real-world experimental
+                        validation.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Validation & Experimental Analysis
+                </h3>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Simulation & Real-World Trials:</strong
+                        > Validating the framework and internal dependencies through
+                        extensive simulations and controlled outdoor experiments.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >Quantitative Metrics:</strong
+                        > Performing validation using metrics such as trajectory fidelity,
+                        hinge evolution, and collision-free operation to rigorously
+                        assess navigation accuracy, articulation dynamics, and obstacle-avoidance
+                        behavior.
+                    </li>
+                    <li>
+                        <strong
+                            class="font-medium text-slate-900 dark:text-white"
+                            >System Evaluation:</strong
+                        > Analyzing experimental results to determine the robustness
+                        and practical applicability of the framework, and formulating
+                        recommendations for potential extensions to more complex articulated
+                        platforms and broader deployment scenarios.
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+</Layout>

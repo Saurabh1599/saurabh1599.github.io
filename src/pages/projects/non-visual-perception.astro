@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout>
+    <nav class="w-full px-8 py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10">
+        <a href="/#work" class="text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">← Back to Home</a>
+        <h1 class="text-sm font-serif-elegant tracking-wide text-slate-900 dark:text-white">Saurabh Sawant</h1>
+    </nav>
+    <main class="min-h-screen flex flex-col items-center w-full pb-32">
+        <header class="w-full max-w-6xl px-8 pt-24 pb-16">
+            <p
+                class="text-xs tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-4"
+            >
+                UGV / Raspberry Pi · Apr 2025 - Jul 2025
+            </p>
+            <h1
+                class="text-5xl md:text-7xl font-serif-elegant text-slate-900 dark:text-white leading-tight mb-8"
+            >
+                Non-Visual Perception System
+            </h1>
+
+            <div
+                class="flex flex-wrap gap-4 text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/10 pt-8"
+            >
+                <span>Raspberry Pi</span><span>•</span><span>Python</span><span>•</span><span>Sensor Fusion</span><span>•</span><span>V-Model</span><span>•</span><span>Hardware</span>
+            </div>
+        </header>
+
+        <div class="w-full max-w-6xl px-8 mb-16 flex justify-center">
+            <video
+                src="/AGV.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                class="w-full h-auto max-h-[70vh] object-contain rounded-2xl shadow-sm dark:shadow-none opacity-90 bg-slate-100 dark:bg-[#111]"
+            ></video>
+        </div>
+
+        <article
+            class="w-full max-w-6xl px-8 text-slate-900 dark:text-slate-300 font-light leading-relaxed space-y-12 text-lg text-justify mt-8"
+        >
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Overview & Academic Context
+                </h3>
+                <p>
+                    As part of the "Applied Design Methodology in Mechatronics" (ADMM) course at TUHH, our team developed a non-visual perception system that enables an existing Unmanned Ground Vehicle (UGV) to navigate autonomously without relying on conventional cameras or LiDAR.
+                </p>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    System Capabilities
+                </h3>
+                <p class="mb-4">
+                    Using an integrated array of ultrasonic sensors, force sensors, and an IMU, the perception stack can successfully:
+                </p>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Obstacle Differentiation:</strong> Distinguish between hard and soft obstacles, triggering specific recovery mechanisms when necessary.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Terrain Analysis:</strong> Detect the terrain type (smooth or rough) and estimate slope inclination utilizing a custom physical terrain probe.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Real-Time Adaptation:</strong> Adapt its navigational motion dynamically based solely on tactile and inertial sensory feedback.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Development Methodology
+                </h3>
+                <p>
+                    We followed a highly structured V-model development approach for this project. The process systematically transitioned from initial requirement specification and black-box modeling to functional decomposition, creative ideation, concept selection, rapid prototyping, and finally, comprehensive system testing.
+                </p>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Key Takeaways
+                </h3>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Sensor Constraints:</strong> Designing and tuning a robust perception system completely without visual input.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Resource Management:</strong> Engineering effective robotic solutions within strict limitations on hardware and computing resources.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Full-Stack Implementation:</strong> Gaining practical, hands-on experience spanning both software architecture and physical hardware development.
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+</Layout>

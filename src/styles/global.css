@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* This single line tells Tailwind v4 to look for our manual Dark Mode button */
+@variant dark (&:where(.dark, .dark *));

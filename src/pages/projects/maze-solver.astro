@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout>
+    <nav class="w-full px-8 py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10">
+        <a href="/#work" class="text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">← Back to Home</a>
+        <h1 class="text-sm font-serif-elegant tracking-wide text-slate-900 dark:text-white">Saurabh Sawant</h1>
+    </nav>
+    <main class="min-h-screen flex flex-col items-center w-full pb-32">
+        <header class="w-full max-w-6xl px-8 pt-24 pb-16">
+            <p
+                class="text-xs tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-4"
+            >
+                LEGO Mindstorms · Nov 2023 - Jan 2024
+            </p>
+            <h1
+                class="text-5xl md:text-7xl font-serif-elegant text-slate-900 dark:text-white leading-tight mb-8"
+            >
+                Autonomous Maze Solver
+            </h1>
+
+            <div
+                class="flex flex-wrap gap-4 text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/10 pt-8"
+            >
+                <span>Java</span><span>•</span><span>OOP</span><span>•</span><span>Control Systems</span><span>•</span><span>Robotics</span><span>•</span><span>Sensor Filtering</span>
+            </div>
+        </header>
+
+        <article
+            class="w-full max-w-6xl px-8 text-slate-900 dark:text-slate-300 font-light leading-relaxed space-y-12 text-lg text-justify mt-8"
+        >
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Overview & Objective
+                </h3>
+                <p>
+                    The primary objective of this project was to program an autonomous LEGO Mindstorms robot capable of reliably navigating its way through complex, unknown mazes. The development process bridged the gap between virtual testing and physical deployment, ensuring that behavioral algorithms developed and validated in a simulation environment translated seamlessly to real-world robotic hardware.
+                </p>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Software Architecture
+                </h3>
+                <p class="mb-4">
+                    The control architecture was built from the ground up utilizing strict Object-Oriented Programming (OOP) principles in Java.
+                </p>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Modular Behaviors:</strong> Designed highly reusable and modular classes to separate navigation logic from raw sensor polling, allowing for cleaner code and easier debugging.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Hardware Abstraction:</strong> Structured the codebase using Java interfaces and classes to abstract the low-level hardware. This enabled control algorithms to be seamlessly tested in a virtual simulator before deploying them directly to the physical robot.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Sensor Integration & Filtering
+                </h3>
+                <p class="mb-4">
+                    Reliable maze navigation relies entirely on accurate perception of the immediate environment. To achieve this, the system integrated multiple data streams while actively compensating for hardware noise.
+                </p>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400"
+                >
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Obstacle Avoidance:</strong> Utilized forward-facing sensors to dynamically detect walls and prevent collisions, triggering immediate course-correction maneuvers.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Color Detection:</strong> Integrated color sensors to recognize floor markings or specific visual cues indicating target zones or forbidden areas.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Low-Pass Filtering:</strong> Engineered software-based low-pass filters to clean erratic sensor spikes, dramatically improving the navigational stability and driving smoothness of the physical robot.
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </main>
+</Layout>

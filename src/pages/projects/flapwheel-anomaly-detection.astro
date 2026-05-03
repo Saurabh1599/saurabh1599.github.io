@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout>
+    <nav class="w-full px-8 py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10">
+        <a href="/#work" class="text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">← Back to Home</a>
+        <h1 class="text-sm font-serif-elegant tracking-wide text-slate-900 dark:text-white">Saurabh Sawant</h1>
+    </nav>
+    <main class="min-h-screen flex flex-col items-center w-full pb-32">
+        <header class="w-full max-w-6xl px-8 pt-24 pb-16">
+            <p
+                class="text-xs tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-4"
+            >
+                Computer Vision · Deep Learning
+            </p>
+            <h1
+                class="text-5xl md:text-7xl font-serif-elegant text-slate-900 dark:text-white leading-tight mb-8"
+            >
+                Flap Wheel Anomaly Detection
+            </h1>
+
+            <div
+                class="flex flex-wrap gap-4 text-xs tracking-widest uppercase text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-white/10 pt-8"
+            >
+                <span>PyTorch</span><span>•</span><span>OpenCV</span><span>•</span><span>Autoencoders</span><span>•</span><span>Unsupervised Learning</span>
+            </div>
+        </header>
+
+        <article
+            class="w-full max-w-6xl px-8 text-slate-900 dark:text-slate-300 font-light leading-relaxed space-y-12 text-lg text-justify mt-8"
+        >
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Overview
+                </h3>
+                <p>
+                    This project presents a Convolutional Autoencoder (CAE) based anomaly detection system designed for the inspection of flap wheels during production or maintenance. The model automatically flags structural defects or wear, such as tears, excessive wear, or missing flaps, relying entirely on unsupervised learning techniques.
+                </p>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Approach & Pipeline
+                </h3>
+                <p class="mb-4">
+                    The anomaly detection pipeline is composed of two primary stages designed to clean the data and identify defects.
+                </p>
+                <ul
+                    class="list-disc pl-6 space-y-3 marker:text-teal-900 dark:marker:text-amber-400 mb-8"
+                >
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Smart Cropping Logic:</strong> A custom computer vision pipeline utilizing OpenCV processes raw images by removing the background and isolating the flap wheel. It leverages per-image best-thresholding and left-shaft trimming to enforce a uniform canvas size, preparing the inputs for the autoencoder.
+                    </li>
+                    <li>
+                        <strong class="font-medium text-slate-900 dark:text-white">Autoencoder Reconstruction:</strong> A Convolutional Autoencoder (CAE) architecture was developed to compress input images into a lower-dimensional latent representation, and then reconstruct them. 
+                    </li>
+                </ul>
+                <figure class="my-8 flex flex-col items-center">
+                    <img src="/Convolutional_autoencoder.jpg" alt="Autoencoder Architecture" class="w-full max-w-4xl rounded-lg border border-slate-200 dark:border-white/10" />
+                    <figcaption class="text-sm text-slate-500 mt-3 text-center">Architecture of the Convolutional Autoencoder used for reconstruction</figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Unsupervised Learning & Error Calculation
+                </h3>
+                <p class="mb-4">
+                    The CAE was trained exclusively on images of healthy (Neuzustand) flap wheels. By only observing flawless examples during the training phase, the network learns to accurately reconstruct healthy patterns while struggling to reconstruct anomalous features like defects or wear.
+                </p>
+                <p>
+                    To determine anomalies, the system calculates a <strong>Hybrid Reconstruction Error</strong> combining the Structural Similarity Index (SSIM) and Mean Squared Error (MSE). A threshold is established based on the maximum error observed in a validation set of healthy images. Any image yielding a reconstruction error above this threshold is automatically flagged as anomalous.
+                </p>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Reconstruction Results
+                </h3>
+                <p class="mb-6">
+                    The model successfully reconstructs healthy flap wheels but leaves artifacts or blurs around anomalous areas, generating a noticeable spike in reconstruction error.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <figure class="flex flex-col items-center">
+                        <img src="/50x10_recon_output.png" alt="50x10 Flap Wheel Reconstruction" class="w-full rounded-lg border border-slate-200 dark:border-white/10" />
+                        <figcaption class="text-sm text-slate-500 mt-3 text-center">50x10 Flap Wheel Reconstruction</figcaption>
+                    </figure>
+                    <figure class="flex flex-col items-center">
+                        <img src="/50x20_recon_output.png" alt="50x20 Flap Wheel Reconstruction" class="w-full rounded-lg border border-slate-200 dark:border-white/10" />
+                        <figcaption class="text-sm text-slate-500 mt-3 text-center">50x20 Flap Wheel Reconstruction</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section>
+                <h3
+                    class="text-base font-bold tracking-widest text-teal-900 dark:text-amber-400 uppercase mb-6"
+                >
+                    Validation Performance
+                </h3>
+                <p class="mb-6">
+                    Evaluation on a dataset containing anomalies revealed that the autoencoder successfully identified major structural defects. While it correctly flagged many significant issues, further fine-tuning could improve its sensitivity to more subtle anomalies that were sometimes missed in early validation batches.
+                </p>
+                <figure class="my-8 flex flex-col items-center">
+                    <img src="/Validation_result.png" alt="Validation Results highlighting anomalous and normal flags" class="w-full max-w-4xl rounded-lg border border-slate-200 dark:border-white/10" />
+                    <figcaption class="text-sm text-slate-500 mt-3 text-center">Sample validation results based on the reconstruction error threshold</figcaption>
+                </figure>
+            </section>
+        </article>
+    </main>
+</Layout>
